@@ -29,6 +29,8 @@ public class MobilePhoneRepository {
 
     // Delete all mobile phones using DAO
     public void deleteAll() {
-        mobilePhoneDAO.deleteAll();
+        MobilePhoneRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mobilePhoneDAO.deleteAll();
+        });
     }
 }
