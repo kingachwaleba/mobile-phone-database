@@ -1,6 +1,7 @@
 package com.example.mobilephonedatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,6 +9,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    private MobilePhoneViewModel mobilePhoneViewModel;
     private MobilePhoneListAdapter mobilePhoneListAdapter;
 
     @Override
@@ -22,5 +24,8 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(mobilePhoneListAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        // Get the model view from the view model provider
+        mobilePhoneViewModel = new ViewModelProvider(this).get(MobilePhoneViewModel.class);
     }
 }
