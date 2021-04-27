@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">MobilePhoneDatabase</string>
+    <string name="phoneProducer">TextView</string>
+    <string name="phoneModel">TextView</string>
 </resources>
