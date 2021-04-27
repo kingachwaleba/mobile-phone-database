@@ -30,6 +30,10 @@ public class MobilePhone {
         this.wwwPage = wwwPage;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getId() {
         return id;
     }
