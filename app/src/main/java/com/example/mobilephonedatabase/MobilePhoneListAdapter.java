@@ -1,5 +1,6 @@
 package com.example.mobilephonedatabase;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,7 +35,11 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
     @NonNull
     @Override
     public MobilePhoneViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return null;
+        // Create a new row layout based on XML
+        @SuppressLint("InflateParams") View row = layoutInflater.inflate(R.layout.list_line, null);
+
+        // Return a new holder object
+        return new MobilePhoneViewHolder(row);
     }
 
     @Override
