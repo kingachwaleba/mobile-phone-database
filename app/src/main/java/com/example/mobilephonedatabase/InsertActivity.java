@@ -18,6 +18,8 @@ public class InsertActivity extends AppCompatActivity {
     Button cancelButton;
     Button saveButton;
 
+    public InsertActivity() {}
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
