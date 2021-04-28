@@ -9,14 +9,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class InsertActivity extends AppCompatActivity {
 
-    EditText producerName;
-    EditText modelName;
-    EditText androidVersion;
-    EditText webPage;
+    private EditText producerName;
+    private EditText modelName;
+    private EditText androidVersion;
+    private EditText webPage;
 
-    Button webSiteButton;
-    Button cancelButton;
-    Button saveButton;
+    private Button webSiteButton;
+    private Button cancelButton;
+    private Button saveButton;
 
     public InsertActivity() {}
 
