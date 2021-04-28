@@ -1,5 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:shrinkColumns="*"
+    android:stretchColumns="2">
 
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/producerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Producer" />
+
+        <EditText
+            android:id="@+id/producerNameInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter producer name" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/modelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model" />
+
+        <EditText
+            android:id="@+id/modelNameInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter model name" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/androidVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Android version" />
+
+        <EditText
+            android:id="@+id/androidVersionInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter android version" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/webSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Web site" />
+
+        <EditText
+            android:id="@+id/webSiteInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Enter web site" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/webSiteButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Web site" />
+
+        <Button
+            android:id="@+id/cancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel" />
+
+        <Button
+            android:id="@+id/saveButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save" />
+
+    </TableRow>
 </TableLayout>
