@@ -5,6 +5,6 @@
     <item
         android:id="@+id/deleteAll"
         android:orderInCategory="1"
-        android:title="Clear all data"
+        android:title="@string/deleteAllPhones"
         app:showAsAction="never" />
 </menu>
