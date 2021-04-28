@@ -55,6 +55,12 @@ public abstract class MobilePhoneRoomDatabase extends RoomDatabase {
             // execute() takes in a runnable object and performs its task asynchronously
             databaseWriteExecutor.execute(() -> {
                 MobilePhoneDAO mobilePhoneDAO = INSTANCE.mobilePhoneDAO();
+
+                MobilePhone mobilePhone1 = new MobilePhone("Google", "Pixel 4", "8.1", "www.pixel4.com");
+                MobilePhone mobilePhone2 = new MobilePhone("Samsung", "Galaxy S21", "8.0", "www.samsung.com");
+
+                mobilePhoneDAO.insert(mobilePhone1);
+                mobilePhoneDAO.insert(mobilePhone2);
             });
         }
     };
