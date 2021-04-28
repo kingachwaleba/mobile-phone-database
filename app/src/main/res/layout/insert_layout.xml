@@ -22,7 +22,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/producer_name_input" />
+            android:hint="@string/producer_name_input" />
 
     </TableRow>
 
@@ -43,7 +43,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/model_name_input" />
+            android:hint="@string/model_name_input" />
     </TableRow>
 
     <TableRow
@@ -63,7 +63,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/android_version_input" />
+            android:hint="@string/android_version_input" />
     </TableRow>
 
     <TableRow
@@ -83,7 +83,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@string/web_site_input" />
+            android:hint="@string/web_site_input" />
     </TableRow>
 
     <TableRow
