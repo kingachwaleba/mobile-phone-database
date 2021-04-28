@@ -6,14 +6,19 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
 
     private MobilePhoneViewModel mobilePhoneViewModel;
     private MobilePhoneListAdapter mobilePhoneListAdapter;
+
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,10 @@ public class MainActivity extends AppCompatActivity {
         mobilePhoneViewModel.getAllMobilePhones().observe(this, mobilePhones -> {
             mobilePhoneListAdapter.setMobilePhoneList(mobilePhones);
         });
+
+        floatingActionButton = findViewById(R.id.fabMain);
+
+        floatingActionButton.setOnClickListener(v -> insertActivity());
     }
 
     @Override
@@ -56,5 +65,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    // Invoke one activity into another
+    public void insertActivity() {
+        Intent intent = new Intent(MainActivity.this, InsertActivity.class);
+        startActivityForResult(intent, 0);
     }
 }
