@@ -3,4 +3,15 @@
     <string name="phoneProducer">TextView</string>
     <string name="phoneModel">TextView</string>
     <string name="deleteAllPhones">Clear all data</string>
+    <string name="producer">Producer</string>
+    <string name="model">Model</string>
+    <string name="android_version">Android version</string>
+    <string name="web_site">Web site</string>
+    <string name="webSiteButtonLabel">Web site</string>
+    <string name="cancelButtonLabel">Cancel</string>
+    <string name="saveButtonLabel">Save</string>
+    <string name="web_site_input">Enter web site</string>
+    <string name="android_version_input">Enter android version</string>
+    <string name="model_name_input">Enter model name</string>
+    <string name="producer_name_input">Enter producer name</string>
 </resources>

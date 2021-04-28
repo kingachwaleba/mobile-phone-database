@@ -13,7 +13,7 @@
             android:id="@+id/producerName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Producer" />
+            android:text="@string/producer" />
 
         <EditText
             android:id="@+id/producerNameInput"
@@ -22,7 +22,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter producer name" />
+            android:text="@string/producer_name_input" />
 
     </TableRow>
 
@@ -34,7 +34,7 @@
             android:id="@+id/modelName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Model" />
+            android:text="@string/model" />
 
         <EditText
             android:id="@+id/modelNameInput"
@@ -43,7 +43,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter model name" />
+            android:text="@string/model_name_input" />
     </TableRow>
 
     <TableRow
@@ -54,7 +54,7 @@
             android:id="@+id/androidVersion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Android version" />
+            android:text="@string/android_version" />
 
         <EditText
             android:id="@+id/androidVersionInput"
@@ -63,7 +63,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter android version" />
+            android:text="@string/android_version_input" />
     </TableRow>
 
     <TableRow
@@ -74,7 +74,7 @@
             android:id="@+id/webSite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Web site" />
+            android:text="@string/web_site" />
 
         <EditText
             android:id="@+id/webSiteInput"
@@ -83,7 +83,7 @@
             android:layout_span="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Enter web site" />
+            android:text="@string/web_site_input" />
     </TableRow>
 
     <TableRow
@@ -94,19 +94,19 @@
             android:id="@+id/webSiteButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Web site" />
+            android:text="@string/webSiteButtonLabel" />
 
         <Button
             android:id="@+id/cancelButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel" />
+            android:text="@string/cancelButtonLabel" />
 
         <Button
             android:id="@+id/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save" />
+            android:text="@string/saveButtonLabel" />
 
     </TableRow>
 </TableLayout>
