@@ -14,4 +14,5 @@
     <string name="android_version_input">Enter android version</string>
     <string name="model_name_input">Enter model name</string>
     <string name="producer_name_input">Enter producer name</string>
+    <string name="FAB_Button">TODO</string>
 </resources>
