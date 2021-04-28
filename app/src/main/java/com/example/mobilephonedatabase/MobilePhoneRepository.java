@@ -27,6 +27,11 @@ public class MobilePhoneRepository {
         return allMobilePhones;
     }
 
+    // Insert mobile phone to the database
+    public void insert(MobilePhone mobilePhone) {
+        mobilePhoneDAO.insert(mobilePhone);
+    }
+
     // Delete all mobile phones using DAO
     public void deleteAll() {
         MobilePhoneRoomDatabase.databaseWriteExecutor.execute(() -> {
