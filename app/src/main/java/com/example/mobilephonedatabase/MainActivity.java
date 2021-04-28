@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         mobilePhoneViewModel = new ViewModelProvider(this).get(MobilePhoneViewModel.class);
 
         // Set the new mobile phones list in the adapter
-        // When the data has been change
+        // When the data has been changed
         mobilePhoneViewModel.getAllMobilePhones().observe(this, mobilePhones -> {
             mobilePhoneListAdapter.setMobilePhoneList(mobilePhones);
         });
