@@ -44,7 +44,8 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
 
     @Override
     public void onBindViewHolder(@NonNull MobilePhoneViewHolder holder, int position) {
-
+        holder.producerLabel.setText(mobilePhoneList.get(position).getProducer());
+        holder.modelLabel.setText(mobilePhoneList.get(position).getModel());
     }
 
     public class MobilePhoneViewHolder extends RecyclerView.ViewHolder {
