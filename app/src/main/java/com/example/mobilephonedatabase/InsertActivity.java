@@ -29,5 +29,11 @@ public class InsertActivity extends AppCompatActivity {
         modelName = findViewById(R.id.modelNameInput);
         androidVersion = findViewById(R.id.androidVersionInput);
         webPage = findViewById(R.id.webSiteInput);
+
+        webSiteButton = findViewById(R.id.webSiteButton);
+        cancelButton = findViewById(R.id.cancelButton);
+        saveButton = findViewById(R.id.saveButton);
+
+        cancelButton.setOnClickListener(v -> finish());
     }
 }
