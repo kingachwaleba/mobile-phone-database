@@ -24,6 +24,6 @@ public interface MobilePhoneDAO {
 
     // Return LiveData container with the list of the mobile phones
     // It enables to received notifications when data is changed
-    @Query("SELECT * FROM mobilephone ORDER BY model")
+    @Query("SELECT id, producer, model, androidVersion, wwwPage FROM mobilephone ORDER BY producer")
     LiveData<List<MobilePhone>> getAlphabetizedMobilePhones();
 }
