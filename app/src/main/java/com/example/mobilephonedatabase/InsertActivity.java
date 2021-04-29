@@ -1,8 +1,12 @@
 package com.example.mobilephonedatabase;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -47,5 +51,127 @@ public class InsertActivity extends AppCompatActivity {
             mobilePhoneViewModel.insert(mobilePhone);
             finish();
         });
+
+        saveButton.setEnabled(false);
+
+        producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && isEmpty(producerName)) {
+                    Toast.makeText(InsertActivity.this, R.string.errorMessage, Toast.LENGTH_SHORT).show();
+                    producerName.setError(getString(R.string.errorMessage));
+                    saveButton.setEnabled(false);
+                }
+            }
+        });
+
+        modelName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && isEmpty(modelName)) {
+                    Toast.makeText(InsertActivity.this, R.string.errorMessage, Toast.LENGTH_SHORT).show();
+                    modelName.setError(getString(R.string.errorMessage));
+                    saveButton.setEnabled(false);
+                }
+            }
+        });
+
+        androidVersion.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && isEmpty(androidVersion)) {
+                    Toast.makeText(InsertActivity.this, R.string.errorMessage, Toast.LENGTH_SHORT).show();
+                    androidVersion.setError(getString(R.string.errorMessage));
+                    saveButton.setEnabled(false);
+                }
+            }
+        });
+
+        webPage.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus && isEmpty(webPage)) {
+                    Toast.makeText(InsertActivity.this, R.string.errorMessage, Toast.LENGTH_SHORT).show();
+                    webPage.setError(getString(R.string.errorMessage));
+                    saveButton.setEnabled(false);
+                }
+            }
+        });
+
+        producerName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isEmpty(modelName) && !isEmpty(androidVersion) && !isEmpty(webPage))
+                    saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        modelName.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isEmpty(producerName) && !isEmpty(androidVersion) && !isEmpty(webPage))
+                    saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        androidVersion.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isEmpty(modelName) && !isEmpty(producerName) && !isEmpty(webPage))
+                    saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+        webPage.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!isEmpty(modelName) && !isEmpty(androidVersion) && !isEmpty(producerName))
+                    saveButton.setEnabled(true);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+    }
+
+    public boolean isEmpty(EditText editText) {
+        return editText.getText().toString().trim().length() == 0;
     }
 }
