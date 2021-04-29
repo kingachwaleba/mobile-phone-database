@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -169,6 +170,34 @@ public class InsertActivity extends AppCompatActivity {
 
             }
         });
+
+        if (savedInstanceState != null) {
+            String savedProducerName = savedInstanceState.getString("producerName");
+            String savedModelName = savedInstanceState.getString("modelName");
+            String savedAndroidVersion = savedInstanceState.getString("androidVersion");
+            String savedWebPage = savedInstanceState.getString("webPage");
+
+            producerName.setText(savedProducerName);
+            modelName.setText(savedModelName);
+            androidVersion.setText(savedAndroidVersion);
+            webPage.setText(savedWebPage);
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // getText() returns CharSequence not String
+        producerName = findViewById(R.id.producerNameInput);
+        modelName = findViewById(R.id.modelNameInput);
+        androidVersion = findViewById(R.id.androidVersionInput);
+        webPage = findViewById(R.id.webSiteInput);
+
+        outState.putString("producerName", producerName.getText().toString());
+        outState.putString("modelName", modelName.getText().toString());
+        outState.putString("androidVersion", androidVersion.getText().toString());
+        outState.putString("webPage", webPage.getText().toString());
     }
 
     public boolean isEmpty(EditText editText) {
