@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
     }
 
     @Override
-    public void onItemClick(Element element) {
+    public void onItemClick(MobilePhone mobilePhone) {
 
     }
 }
