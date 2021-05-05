@@ -6,6 +6,7 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -15,6 +16,9 @@ public interface MobilePhoneDAO {
     // The operation will be aborted when there is any conflict
     @Insert(onConflict = OnConflictStrategy.ABORT)
     void insert(MobilePhone mobilePhone);
+
+    @Update(onConflict = OnConflictStrategy.ABORT)
+    void update(MobilePhone mobilePhone);
 
     @Delete
     void delete(MobilePhone mobilePhone);

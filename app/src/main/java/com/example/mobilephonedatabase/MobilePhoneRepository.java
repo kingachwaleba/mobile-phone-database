@@ -34,6 +34,11 @@ public class MobilePhoneRepository {
         });
     }
 
+    // Update one mobile phone from the database
+    public void update(MobilePhone mobilePhone) {
+        mobilePhoneDAO.update(mobilePhone);
+    }
+
     // Delete all mobile phones using DAO
     public void deleteAll() {
         MobilePhoneRoomDatabase.databaseWriteExecutor.execute(() -> {
