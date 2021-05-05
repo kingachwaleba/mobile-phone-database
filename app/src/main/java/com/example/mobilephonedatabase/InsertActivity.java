@@ -77,6 +77,10 @@ public class InsertActivity extends AppCompatActivity {
             modelName.setText(bundle.getString("mobileModel"));
             androidVersion.setText(bundle.getString("mobileAndroidVersion"));
             webPage.setText(bundle.getString("mobileWebPage"));
+
+            // Change text in save button and set it enabled
+            saveButton.setText("Update");
+            saveButton.setEnabled(true);
         }
 
         producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
