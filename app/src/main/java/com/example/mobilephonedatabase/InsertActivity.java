@@ -1,5 +1,7 @@
 package com.example.mobilephonedatabase;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -54,6 +56,19 @@ public class InsertActivity extends AppCompatActivity {
         });
 
         saveButton.setEnabled(false);
+
+        // Handle the button that shows web page
+        webSiteButton.setOnClickListener(v -> {
+            String webPageAddress = webPage.getText().toString();
+
+            if (webPageAddress.startsWith("http://")) {
+                Intent webIntent = new Intent("android.intent.action.VIEW", Uri.parse(webPageAddress));
+                startActivity(webIntent);
+            }
+            else {
+                Toast.makeText(InsertActivity.this, "Web page URL must start with 'http://'!", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
