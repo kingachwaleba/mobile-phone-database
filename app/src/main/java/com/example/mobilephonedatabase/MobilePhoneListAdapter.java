@@ -81,7 +81,12 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
 
         @Override
         public void onClick(View v) {
+            // Get number of selected mobile phone
+            int position = getAdapterPosition();
 
+            // Inform listener which mobile phone has been selected
+            MobilePhone selectedMobilePhone = mobilePhoneList.get(position);
+            onItemClickListener.onItemClick(selectedMobilePhone);
         }
     }
 }
