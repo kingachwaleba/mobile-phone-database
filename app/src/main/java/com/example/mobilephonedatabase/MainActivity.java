@@ -8,12 +8,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.sax.Element;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MobilePhoneListAdapter.OnItemClickListener {
 
     private MobilePhoneViewModel mobilePhoneViewModel;
     private MobilePhoneListAdapter mobilePhoneListAdapter;
@@ -71,5 +72,10 @@ public class MainActivity extends AppCompatActivity {
     public void insertActivity() {
         Intent intent = new Intent(MainActivity.this, InsertActivity.class);
         startActivityForResult(intent, 0);
+    }
+
+    @Override
+    public void onItemClick(Element element) {
+
     }
 }
