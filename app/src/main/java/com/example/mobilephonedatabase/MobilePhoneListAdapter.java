@@ -64,7 +64,7 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
         void onItemClick(Element element);
     }
 
-    public class MobilePhoneViewHolder extends RecyclerView.ViewHolder {
+    public class MobilePhoneViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView producerLabel;
         private TextView modelLabel;
@@ -74,6 +74,11 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
 
             producerLabel = itemView.findViewById(R.id.phoneProducer);
             modelLabel = itemView.findViewById(R.id.phoneModel);
+        }
+
+        @Override
+        public void onClick(View v) {
+
         }
     }
 }
