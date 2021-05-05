@@ -74,6 +74,8 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
 
             producerLabel = itemView.findViewById(R.id.phoneProducer);
             modelLabel = itemView.findViewById(R.id.phoneModel);
+
+            itemView.setOnClickListener(this);
         }
 
         @Override
