@@ -3,6 +3,7 @@ package com.example.mobilephonedatabase;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,8 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
 
     private FloatingActionButton floatingActionButton;
 
+    private ItemTouchHelper itemTouchHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,28 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
         recyclerView.setAdapter(mobilePhoneListAdapter);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                // Get id of selected mobile phone
+                int position = viewHolder.getAdapterPosition();
+                MobilePhone mobilePhone = mobilePhoneViewModel.getAllMobilePhones().getValue().get(position);
+                // Delete selected mobile phone
+                mobilePhoneViewModel.delete(mobilePhone);
+            }
+        };
+
+        itemTouchHelper = new ItemTouchHelper(simpleCallback);
+
+        // Connect callback with recycler view
+        itemTouchHelper.attachToRecyclerView(recyclerView);
 
         // Get the model view from the view model provider
         mobilePhoneViewModel = new ViewModelProvider(this).get(MobilePhoneViewModel.class);
