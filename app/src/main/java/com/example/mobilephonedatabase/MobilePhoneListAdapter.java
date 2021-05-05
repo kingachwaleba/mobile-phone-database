@@ -61,7 +61,7 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
     // An interface that implements main activity
     // It informs main activity which element has been chosen
     public interface OnItemClickListener {
-        void onItemClickListener(Element element);
+        void onItemClick(Element element);
     }
 
     public class MobilePhoneViewHolder extends RecyclerView.ViewHolder {
