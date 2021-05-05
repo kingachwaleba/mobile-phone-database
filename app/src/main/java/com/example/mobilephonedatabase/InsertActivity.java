@@ -70,6 +70,15 @@ public class InsertActivity extends AppCompatActivity {
             }
         });
 
+        // Read data about selected mobile phone
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null) {
+            producerName.setText(bundle.getString("mobileProducer"));
+            modelName.setText(bundle.getString("mobileModel"));
+            androidVersion.setText(bundle.getString("mobileAndroidVersion"));
+            webPage.setText(bundle.getString("mobileWebPage"));
+        }
+
         producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
