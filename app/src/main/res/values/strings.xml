@@ -17,4 +17,5 @@
     <string name="FAB_Button">TODO</string>
     <string name="errorMessage">Field cannot be null!</string>
     <string name="webPageMessage">Web page URL must start with \'http://\'!</string>
+    <string name="updateButtonName">Update</string>
 </resources>

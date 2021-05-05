@@ -79,7 +79,7 @@ public class InsertActivity extends AppCompatActivity {
             webPage.setText(bundle.getString("mobileWebPage"));
 
             // Change text in save button and set it enabled
-            saveButton.setText("Update");
+            saveButton.setText(R.string.updateButtonName);
             saveButton.setEnabled(true);
         }
 
