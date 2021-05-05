@@ -57,7 +57,7 @@ public class InsertActivity extends AppCompatActivity {
         webSiteButton.setOnClickListener(v -> {
             String webPageAddress = webPage.getText().toString();
 
-            if (webPageAddress.startsWith("http://")) {
+            if (webPageAddress.startsWith("http://") || webPageAddress.startsWith("https://")) {
                 Intent webIntent = new Intent("android.intent.action.VIEW", Uri.parse(webPageAddress));
                 startActivity(webIntent);
             }
