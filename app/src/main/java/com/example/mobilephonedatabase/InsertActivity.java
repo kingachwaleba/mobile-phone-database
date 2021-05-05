@@ -52,6 +52,7 @@ public class InsertActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(v -> finish());
 
         saveButton.setEnabled(false);
+        webSiteButton.setEnabled(false);
 
         // Handle the button that shows web page
         webSiteButton.setOnClickListener(v -> {
@@ -78,6 +79,7 @@ public class InsertActivity extends AppCompatActivity {
             // Change text in save button and set it enabled
             saveButton.setText(R.string.updateButtonName);
             saveButton.setEnabled(true);
+            webSiteButton.setEnabled(true);
         }
 
         saveButton.setOnClickListener(v -> {
