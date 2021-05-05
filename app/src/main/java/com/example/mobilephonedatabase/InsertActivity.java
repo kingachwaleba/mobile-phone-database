@@ -22,6 +22,8 @@ public class InsertActivity extends AppCompatActivity {
     private EditText androidVersion;
     private EditText webPage;
 
+    private Long id;
+
     private Button webSiteButton;
     private Button cancelButton;
     private Button saveButton;
@@ -49,12 +51,6 @@ public class InsertActivity extends AppCompatActivity {
 
         cancelButton.setOnClickListener(v -> finish());
 
-        saveButton.setOnClickListener(v -> {
-            MobilePhone  mobilePhone = new MobilePhone(producerName.getText().toString(), modelName.getText().toString(), androidVersion.getText().toString(), webPage.getText().toString());
-            mobilePhoneViewModel.insert(mobilePhone);
-            finish();
-        });
-
         saveButton.setEnabled(false);
 
         // Handle the button that shows web page
@@ -73,6 +69,7 @@ public class InsertActivity extends AppCompatActivity {
         // Read data about selected mobile phone
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+            id = bundle.getLong("phoneId");
             producerName.setText(bundle.getString("mobileProducer"));
             modelName.setText(bundle.getString("mobileModel"));
             androidVersion.setText(bundle.getString("mobileAndroidVersion"));
@@ -82,6 +79,28 @@ public class InsertActivity extends AppCompatActivity {
             saveButton.setText(R.string.updateButtonName);
             saveButton.setEnabled(true);
         }
+
+        saveButton.setOnClickListener(v -> {
+            MobilePhone  mobilePhone = new MobilePhone(producerName.getText().toString(), modelName.getText().toString(), androidVersion.getText().toString(), webPage.getText().toString());
+
+            if (bundle != null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putLong("changedPhoneId", id);
+                bundle2.putString("changedMobileProducer", producerName.getText().toString());
+                bundle2.putString("changedMobileModel", modelName.getText().toString());
+                bundle2.putString("changedMobileAndroidVersion", androidVersion.getText().toString());
+                bundle2.putString("changedMobileWebPage", webPage.getText().toString());
+
+                Intent intent = new Intent();
+                intent.putExtras(bundle2);
+                setResult(RESULT_OK, intent);
+            }
+            else {
+                mobilePhoneViewModel.insert(mobilePhone);
+            }
+
+            finish();
+        });
 
         producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
