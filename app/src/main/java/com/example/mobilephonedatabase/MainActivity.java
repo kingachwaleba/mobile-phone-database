@@ -78,15 +78,21 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
     public void onItemClick(MobilePhone mobilePhone) {
         Intent intent = new Intent(MainActivity.this, InsertActivity.class);
 
+        long id = mobilePhone.getId();
         String producer = mobilePhone.getProducer();
         String model = mobilePhone.getModel();
         String androidVersion = mobilePhone.getAndroidVersion();
         String webPage = mobilePhone.getWwwPage();
 
-        intent.putExtra("mobileProducer", producer);
-        intent.putExtra("mobileModel", model);
-        intent.putExtra("mobileAndroidVersion", androidVersion);
-        intent.putExtra("mobileWebPage", webPage);
+        Bundle bundle = new Bundle();
+
+        bundle.putLong("phoneId", id);
+        bundle.putString("mobileProducer", producer);
+        bundle.putString("mobileModel", model);
+        bundle.putString("mobileAndroidVersion", androidVersion);
+        bundle.putString("mobileWebPage", webPage);
+
+        intent.putExtras(bundle);
 
         startActivityForResult(intent, 0);
     }
