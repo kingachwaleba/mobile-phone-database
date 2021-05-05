@@ -35,6 +35,11 @@ public class MobilePhoneViewModel extends AndroidViewModel {
         mobilePhoneRepository.update(mobilePhone);
     }
 
+    // Delete one mobile phone from the database
+    public void delete(MobilePhone mobilePhone) {
+        mobilePhoneRepository.delete(mobilePhone);
+    }
+
     // Delete all mobile phones
     public void deleteAll() {
         mobilePhoneRepository.deleteAll();
