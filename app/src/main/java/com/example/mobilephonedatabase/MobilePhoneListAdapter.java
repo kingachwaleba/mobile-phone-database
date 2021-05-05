@@ -17,10 +17,19 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
 
     private List<MobilePhone> mobilePhoneList;
     private LayoutInflater layoutInflater;
+    private OnItemClickListener onItemClickListener;
 
     public MobilePhoneListAdapter(Context context) {
         layoutInflater = LayoutInflater.from(context);
         this.mobilePhoneList = null;
+
+        try {
+            onItemClickListener = (OnItemClickListener) context;
+        }
+        catch (Exception exception) {
+            exception.printStackTrace();
+        }
+
     }
 
     @Override
