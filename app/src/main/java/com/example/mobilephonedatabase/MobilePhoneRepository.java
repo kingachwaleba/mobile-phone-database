@@ -36,7 +36,9 @@ public class MobilePhoneRepository {
 
     // Update one mobile phone from the database
     public void update(MobilePhone mobilePhone) {
-        mobilePhoneDAO.update(mobilePhone);
+        MobilePhoneRoomDatabase.databaseWriteExecutor.execute(() -> {
+            mobilePhoneDAO.update(mobilePhone);
+        });
     }
 
     // Delete one mobile phone from the database
