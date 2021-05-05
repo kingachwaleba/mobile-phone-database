@@ -3,6 +3,7 @@ package com.example.mobilephonedatabase;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity
@@ -24,6 +25,15 @@ public class MobilePhone {
     private String wwwPage;
 
     public MobilePhone(@NonNull String producer, @NonNull String model, @NonNull String androidVersion, @NonNull String wwwPage) {
+        this.producer = producer;
+        this.model = model;
+        this.androidVersion = androidVersion;
+        this.wwwPage = wwwPage;
+    }
+
+    @Ignore
+    public MobilePhone(@NonNull Long id, @NonNull String producer, @NonNull String model, @NonNull String androidVersion, @NonNull String wwwPage) {
+        this.id = id;
         this.producer = producer;
         this.model = model;
         this.androidVersion = androidVersion;
