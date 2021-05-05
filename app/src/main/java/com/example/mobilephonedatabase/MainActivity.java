@@ -96,4 +96,22 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
 
         startActivityForResult(intent, 0);
     }
+
+    protected void onActivityResult(int taskCode, int exitCode, Intent result) {
+        super.onActivityResult(taskCode, exitCode, result);
+
+        if (exitCode == RESULT_OK) {
+            Bundle bundle = result.getExtras();
+
+            long id = bundle.getLong("changedPhoneId");
+            String producer = bundle.getString("changedMobileProducer");
+            String model = bundle.getString("changedMobileModel");
+            String androidVersion = bundle.getString("changedMobileAndroidVersion");
+            String webPage = bundle.getString("changedMobileWebPage");
+
+            MobilePhone mobilePhone = new MobilePhone(id, producer, model, androidVersion, webPage);
+
+            mobilePhoneViewModel.update(mobilePhone);
+        }
+    }
 }
