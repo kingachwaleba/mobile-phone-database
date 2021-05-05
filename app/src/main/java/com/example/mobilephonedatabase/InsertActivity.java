@@ -66,7 +66,7 @@ public class InsertActivity extends AppCompatActivity {
                 startActivity(webIntent);
             }
             else {
-                Toast.makeText(InsertActivity.this, "Web page URL must start with 'http://'!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InsertActivity.this, R.string.webPageMessage, Toast.LENGTH_SHORT).show();
             }
         });
 

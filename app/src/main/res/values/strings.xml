@@ -16,4 +16,5 @@
     <string name="producer_name_input">Enter producer name</string>
     <string name="FAB_Button">TODO</string>
     <string name="errorMessage">Field cannot be null!</string>
+    <string name="webPageMessage">Web page URL must start with \'http://\'!</string>
 </resources>
