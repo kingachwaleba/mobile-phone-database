@@ -2,6 +2,7 @@ package com.example.mobilephonedatabase;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.sax.Element;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,6 +47,12 @@ public class MobilePhoneListAdapter extends RecyclerView.Adapter<MobilePhoneList
     public void onBindViewHolder(@NonNull MobilePhoneViewHolder holder, int position) {
         holder.producerLabel.setText(mobilePhoneList.get(position).getProducer());
         holder.modelLabel.setText(mobilePhoneList.get(position).getModel());
+    }
+
+    // An interface that implements main activity
+    // It informs main activity which element has been chosen
+    public interface OnItemClickListener {
+        void onItemClickListener(Element element);
     }
 
     public class MobilePhoneViewHolder extends RecyclerView.ViewHolder {
