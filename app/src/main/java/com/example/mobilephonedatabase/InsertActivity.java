@@ -54,19 +54,6 @@ public class InsertActivity extends AppCompatActivity {
         saveButton.setEnabled(false);
         webSiteButton.setEnabled(false);
 
-        // Handle the button that shows web page
-        webSiteButton.setOnClickListener(v -> {
-            String webPageAddress = webPage.getText().toString();
-
-            if (webPageAddress.startsWith("http://") || webPageAddress.startsWith("https://")) {
-                Intent webIntent = new Intent("android.intent.action.VIEW", Uri.parse(webPageAddress));
-                startActivity(webIntent);
-            }
-            else {
-                Toast.makeText(InsertActivity.this, R.string.webPageMessage, Toast.LENGTH_SHORT).show();
-            }
-        });
-
         // Read data about selected mobile phone
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
@@ -81,6 +68,22 @@ public class InsertActivity extends AppCompatActivity {
             saveButton.setEnabled(true);
             webSiteButton.setEnabled(true);
         }
+
+        // Handle the button that shows web page
+        webSiteButton.setOnClickListener(v -> {
+            if (bundle == null)
+                return;
+
+            String webPageAddress = bundle.getString("mobileWebPage");
+
+            if (webPageAddress.startsWith("http://") || webPageAddress.startsWith("https://")) {
+                Intent webIntent = new Intent("android.intent.action.VIEW", Uri.parse(webPageAddress));
+                startActivity(webIntent);
+            }
+            else {
+                Toast.makeText(InsertActivity.this, R.string.webPageMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         saveButton.setOnClickListener(v -> {
             String updateButtonLabel = getResources().getString(R.string.updateButtonName);
