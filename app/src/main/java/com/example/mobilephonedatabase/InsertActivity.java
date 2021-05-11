@@ -89,7 +89,7 @@ public class InsertActivity extends AppCompatActivity {
             String updateButtonLabel = getResources().getString(R.string.updateButtonName);
             String saveButtonLabel = getResources().getString(R.string.saveButtonLabel);
 
-            if (saveButton.getText().toString().equals(updateButtonLabel)) {
+            if (saveButton.getText().toString().equals(updateButtonLabel) && ifAnyElementEmpty()) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putLong("changedPhoneId", id);
                 bundle2.putString("changedMobileProducer", producerName.getText().toString());
@@ -100,8 +100,10 @@ public class InsertActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtras(bundle2);
                 setResult(1, intent);
+
+                finish();
             }
-            else if (saveButton.getText().toString().equals(saveButtonLabel)) {
+            else if (saveButton.getText().toString().equals(saveButtonLabel) && ifAnyElementEmpty()) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putString("savedMobileProducer", producerName.getText().toString());
                 bundle2.putString("savedMobileModel", modelName.getText().toString());
@@ -111,9 +113,13 @@ public class InsertActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtras(bundle2);
                 setResult(-1, intent);
-            }
 
-            finish();
+                finish();
+            }
+            else {
+                Toast.makeText(InsertActivity.this, R.string.errorMessage, Toast.LENGTH_SHORT).show();
+                saveButton.setEnabled(false);
+            }
         });
 
         producerName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -263,5 +269,9 @@ public class InsertActivity extends AppCompatActivity {
 
     public boolean isEmpty(EditText editText) {
         return editText.getText().toString().trim().length() == 0;
+    }
+
+    public boolean ifAnyElementEmpty() {
+        return !isEmpty(producerName) && !isEmpty(modelName) && !isEmpty(androidVersion) && !isEmpty(webPage);
     }
 }
