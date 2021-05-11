@@ -83,9 +83,10 @@ public class InsertActivity extends AppCompatActivity {
         }
 
         saveButton.setOnClickListener(v -> {
-            MobilePhone  mobilePhone = new MobilePhone(producerName.getText().toString(), modelName.getText().toString(), androidVersion.getText().toString(), webPage.getText().toString());
+            String updateButtonLabel = getResources().getString(R.string.updateButtonName);
+            String saveButtonLabel = getResources().getString(R.string.saveButtonLabel);
 
-            if (bundle != null) {
+            if (saveButton.getText().toString().equals(updateButtonLabel)) {
                 Bundle bundle2 = new Bundle();
                 bundle2.putLong("changedPhoneId", id);
                 bundle2.putString("changedMobileProducer", producerName.getText().toString());
@@ -95,10 +96,18 @@ public class InsertActivity extends AppCompatActivity {
 
                 Intent intent = new Intent();
                 intent.putExtras(bundle2);
-                setResult(RESULT_OK, intent);
+                setResult(1, intent);
             }
-            else {
-                mobilePhoneViewModel.insert(mobilePhone);
+            else if (saveButton.getText().toString().equals(saveButtonLabel)) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("savedMobileProducer", producerName.getText().toString());
+                bundle2.putString("savedMobileModel", modelName.getText().toString());
+                bundle2.putString("savedMobileAndroidVersion", androidVersion.getText().toString());
+                bundle2.putString("savedMobileWebPage", webPage.getText().toString());
+
+                Intent intent = new Intent();
+                intent.putExtras(bundle2);
+                setResult(-1, intent);
             }
 
             finish();

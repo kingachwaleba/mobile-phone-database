@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
     protected void onActivityResult(int taskCode, int exitCode, Intent result) {
         super.onActivityResult(taskCode, exitCode, result);
 
-        if (exitCode == RESULT_OK) {
+        if (exitCode == 1) {
             Bundle bundle = result.getExtras();
 
             long id = bundle.getLong("changedPhoneId");
@@ -137,6 +137,19 @@ public class MainActivity extends AppCompatActivity implements MobilePhoneListAd
             MobilePhone mobilePhone = new MobilePhone(id, producer, model, androidVersion, webPage);
 
             mobilePhoneViewModel.update(mobilePhone);
+        }
+        else if(exitCode == -1) {
+            Bundle bundle = result.getExtras();
+
+            long id = bundle.getLong("savedPhoneId");
+            String producer = bundle.getString("savedMobileProducer");
+            String model = bundle.getString("savedMobileModel");
+            String androidVersion = bundle.getString("savedMobileAndroidVersion");
+            String webPage = bundle.getString("savedMobileWebPage");
+
+            MobilePhone mobilePhone = new MobilePhone(id, producer, model, androidVersion, webPage);
+
+            mobilePhoneViewModel.insert(mobilePhone);
         }
     }
 }
